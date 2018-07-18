@@ -7,8 +7,17 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'custom-button',
-  template: `<button (click)="handleClick()">{{label}}</button>`,
+  selector: 'custom-app',
+  template: `
+  <button (click)="handleClick()">{{label}}</button>
+  <custom-other></custom-other>
+  <h3 class="title">Menu</h3>
+    <nav>
+      <a (click)="routeClick('xlink')">Xlink</a> &nbsp;
+      <a (click)="routeClick('other')">Other</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
   styles: [
     `
     button {
@@ -21,13 +30,17 @@ import {
   ],
   encapsulation: ViewEncapsulation.Native
 })
-export class ButtonComponent {
+export class AppComponent {
   @Input() label = 'default label';
   @Output() action = new EventEmitter<number>();
+  @Output() menuitem = new EventEmitter<number>();
   private clicksCt = 0;
 
   handleClick() {
     this.clicksCt++;
     this.action.emit(this.clicksCt);
+  }
+  routeClick(menuitem: any) {
+    this.menuitem.emit(menuitem);
   }
 }

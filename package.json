@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod --output-hashing=none",
     "package":
-      "cat dist/angular6-elements/{runtime,polyfills,scripts,main}.js | gzip > elements.js.gz",
+      "cat dist/angular6-elements/{runtime,polyfills,scripts,main}.js | gzip > custom-app.js.gz",
     "serve": "http-server --gzip",
     "test": "ng test",
     "lint": "ng lint",

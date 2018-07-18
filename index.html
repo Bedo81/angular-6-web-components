@@ -2,22 +2,22 @@
 <html lang="en">
 
 <head>
+  <!-- Set the base href -->
+  <base href="/">
   <meta charset="UTF-8">
   <title>Custom Button Test Page</title>
-  <script src="elements.js"></script>
+  <script src="custom-app.js"></script>
 </head>
 
 <body>
-  <custom-button label="First Value"></custom-button>
+  <custom-app label="First Value"></custom-app>
 
-  <script>
-    const button = document.querySelector('custom-button');
-    button.addEventListener('action', (event) => {
-      console.log(`"action" emitted: ${event.detail}`);
-    })
-    setTimeout(() => button.label = 'Second Value', 3000);
+  <button onClick="loadWebComponentsModule()">
+      Load Module
+  </button>
 
-  </script>
+  <script src="app-connect.js"></script>
+
 </body>
 
 </html>
